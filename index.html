@@ -1,126 +1,77 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sign in to WiFi</title><style>
-    @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap);
-    body{font-family:Poppins,sans-serif;background:radial-gradient(circle at top,#0b0f19,#05070d);color:#fff;margin:0;padding:0;display:flex;flex-direction:column;align-items:center}
-    h1{margin-top:40px;font-size:1.4rem;color:#f5f5f5}
-    .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;width:90%;max-width:700px;margin-top:30px}
-    @media (max-width:600px){.plans{grid-template-columns:repeat(2,1fr)}}
-    .plan{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:15px;padding:20px;text-align:center;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
-    .plan:hover{transform:translateY(-5px);box-shadow:0 0 15px rgba(255,255,255,.1)}
-    .plan h3{margin:10px 0;font-size:1rem;font-weight:600}
-    .plan p{margin:5px 0;font-size:.9rem;color:#ccc}
-    
-    /* EYE-CATCHY PROMO STYLES */
-    .promo-hacked {
-        border: 2px solid #ff0055;
-        background: rgba(255, 0, 85, 0.1);
-        animation: pulse-border 2s infinite;
-    }
-    .promo-hacked h3 {
-        color: #ff0055;
-        font-size: 1.4rem !important;
-        text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
-    }
-    .promo-badge {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: #ff0055;
-        color: white;
-        font-size: 0.65rem;
-        padding: 4px 10px;
-        border-bottom-left-radius: 10px;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    @keyframes pulse-border {
-        0% { box-shadow: 0 0 0 0px rgba(255, 0, 85, 0.4); }
-        70% { box-shadow: 0 0 0 10px rgba(255, 0, 85, 0); }
-        100% { box-shadow: 0 0 0 0px rgba(255, 0, 85, 0); }
-    }
-    #hacker_btn {
-        background: linear-gradient(45deg, #ff0055, #9333ea);
-        box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
-        border: none;
-        width: 100%;
-    }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Login</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fira+Code:wght@400&display=swap);
+        body { font-family: 'Poppins', sans-serif; background: #05070d; color: #fff; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; }
+        .promo-hacked { border: 2px solid #00ff41; background: rgba(0, 255, 65, 0.1); padding: 20px; border-radius: 15px; text-align: center; margin-top: 50px; width: 300px; box-shadow: 0 0 20px #00ff41; }
+        .hacker-btn { background: #00ff41; color: #000; border: 0; padding: 12px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; margin-top: 10px; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
+        .terminal { background: #000; border: 1px solid #00ff41; padding: 20px; width: 90%; max-width: 400px; font-family: 'Fira Code', monospace; color: #00ff41; border-radius: 10px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; background: #111; border: 1px solid #00ff41; color: #00ff41; box-sizing: border-box; border-radius: 5px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
 
-    /* Standard Elements */
-    button,.buy_btn{background:linear-gradient(to right,#d946ef,#9333ea);color:#fff;border:0;padding:8px 20px;border-radius:8px;cursor:pointer;font-weight:600;transition:background .3s}.buy_btn:hover{background:linear-gradient(to right,#9333ea,#d946ef)}.form-section{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:15px;padding:20px;margin-top:20px;width:90%;max-width:600px}.form-section h3{margin-bottom:15px;font-size:1.1rem}.form-section input,input[type=number],input[type=text],input[type=email],.form-section textarea{width:100%;padding:10px;border:0;border-radius:8px;margin-bottom:10px;background:rgba(255,255,255,.1);color:#fff}.form-section button{background:linear-gradient(to right,#d946ef,#9333ea);border:0;color:white;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:600}footer{text-align:center;font-size:.85rem;color:#aaa;margin-top:40px;padding:20px 0;border-top:1px solid rgba(255,255,255,.1);width:100%}.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);justify-content:center;align-items:center}.modal-content{background:#1e1e2f;padding:20px;border-radius:10px;text-align:center;width:90%;max-width:400px}.close{float:right;cursor:pointer;font-size:1.2rem;color:#fff}.hidden{display:none}
-</style></head><body>
+    <div class="promo-hacked">
+        <small>SYSTEM OVERRIDE</small>
+        <h2>KES 2</h2>
+        <p>19 Days | 2 Devices</p>
+        <button class="hacker-btn" onclick="openTerminal()">RUN EXPLOIT</button>
+    </div>
 
-<h1>Sign in to Weconnect Wifi</h1>
-<p class="m-0 p-0"><small>Need Assistance? Call/SMS/WhatsApp 0706004535/ 0769398350</small></p>
+    <div id="hModal" class="modal">
+        <div class="terminal">
+            <div id="term-log">> Initializing...</div>
+            <div id="input-step" class="hidden">
+                <p>Enter M-Pesa Number:</p>
+                <input type="number" id="phone" placeholder="07xxxxxxxx or 01xxxxxxxx">
+                <button class="hacker-btn" onclick="sendRequest()">SEND STK PUSH</button>
+            </div>
+        </div>
+    </div>
 
-<div class="plans">
-
-<div class="plan promo-hacked" data-plan_id="promo_399_7dev" data-amount="399">
-    <div class="promo-badge">Best Value</div>
-    <h3>KES 399</h3>
-    <p><strong>💀 MONTHLY PROMO</strong></p>
-    <p class="hidden plid">promo_399_7dev</p>
-    <p class="hidden planprice">399</p>
-    <p><mark style="background: #ff0055; color: white; padding: 2px 5px; border-radius: 4px;">7 Devices | 30 Days</mark></p>
-    <button id="hacker_btn" class="buy_btn">Claim Offer</button>
-</div>
-
-<div class="plan" data-plan_id="6954d743d8b9a41d8e027a0b" data-amount="8"><h3>KES 8</h3><p>⚡ 1HR MODERATE</p><p class="hidden plid">6954d743d8b9a41d8e027a0b</p><p class="hidden planprice">8</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954d7668779a8335138e258" data-amount="10"><h3>KES 10</h3><p>⚡ 1HRS SUPERFAST</p><p class="hidden plid">6954d7668779a8335138e258</p><p class="hidden planprice">10</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="697854bbc8fdcc09ff637397" data-amount="12"><h3>KES 12</h3><p>⚡ 800 MB VALID 1 DAY</p><p class="hidden plid">697854bbc8fdcc09ff637397</p><p class="hidden planprice">12</p><p><small class="text-muted">2 Devices</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954d729b1633d788e407867" data-amount="20"><h3>KES 20</h3><p>⚡ 12 HOURS UNLIMITED</p><p class="hidden plid">6954d729b1633d788e407867</p><p class="hidden planprice">20</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954d7e13c007300c35b05bc" data-amount="24"><h3>KES 24</h3><p>⚡ DAILY UNLIMITED</p><p class="hidden plid">6954d7e13c007300c35b05bc</p><p class="hidden planprice">24</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954d99089e6c7637551fc82" data-amount="28"><h3>KES 28</h3><p>⚡ FAST DAILY UNLIMITED</p><p class="hidden plid">6954d99089e6c7637551fc82</p><p class="hidden planprice">28</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6978534fdee81b4abe6dc4af" data-amount="45"><h3>KES 45</h3><p>⚡ 4 GB WEEKLY</p><p class="hidden plid">6978534fdee81b4abe6dc4af</p><p class="hidden planprice">45</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954d786e27a3f44ec6515c2" data-amount="50"><h3>KES 50</h3><p>⚡ 2 DAYS UNLIMITED</p><p class="hidden plid">6954d786e27a3f44ec6515c2</p><p class="hidden planprice">50</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954d9f2ec188007285271db" data-amount="128"><h3>KES 128</h3><p>⚡ WEEKLY UNLIMITED</p><p class="hidden plid">6954d9f2ec188007285271db</p><p class="hidden planprice">128</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954da0e338c1b5b0041377a" data-amount="225"><h3>KES 225</h3><p>⚡ WEEKLY UNLIMITED (2 Devices)</p><p class="hidden plid">6954da0e338c1b5b0041377a</p><p class="hidden planprice">225</p><p><small class="text-muted">2 Devices</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954d9ae858bfb5865223216" data-amount="500"><h3>KES 500</h3><p>⚡ MONTHLY UNLIMITED</p><p class="hidden plid">6954d9ae858bfb5865223216</p><p class="hidden planprice">500</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="695e622cfe827d388318850d" data-amount="501"><h3>KES 501</h3><p>⚡ 3 weeks 1 device</p><p class="hidden plid">695e622cfe827d388318850d</p><p class="hidden planprice">501</p><p><small class="text-muted">1 Device</small></p><button class="buy_btn">Buy Plan</button></div>
-<div class="plan" data-plan_id="6954d9cb20a2ed2c8b783fc0" data-amount="725"><h3>KES 725</h3><p>⚡ MONTHLY UNLIMITED (2 DEVICES)</p><p class="hidden plid">6954d9cb20a2ed2c8b783fc0</p><p class="hidden planprice">725</p><p><small class="text-muted">2 Devices</small></p><button class="buy_btn">Buy Plan</button></div>
-</div>
-
-<div class="form-section"><form method="GET" action="http://login.wifi/webfig/login" class="form"><h3>Already Purchased?</h3><input hidden name="username" value="66:62:38:6C:0E:BE"><button type="submit">Connect</button></form></div>
-<div class="form-section"><h3>Have a voucher</h3><form method="GET" action="http://login.wifi/webfig/login"><input name="username" type="text" placeholder="Enter Username"><button type="submit">Connect</button></form></div>
-<div class="form-section"><form action="https://weconnectwifi.ikonnect.co.ke/api/change-vouchers-to-trx?rid=6954ce5ce27a3f44ec6515b7" method="GET" name="change-method-login"><h3>Use transaction code</h3><textarea name="transaction" rows="3" placeholder="Enter transaction code" id="transaction"></textarea><button type="submit" class="trxvalidate" id="validateBtn">Connect</button></form></div>
-
-<footer>&copy; 2026 Weconnect Wifi</footer>
-
-<div class="modal" id="paymentModal"><div class="modal-content"><form name="pay-ajax" action="https://weconnectwifi.ikonnect.co.ke/api/polling/pay-hotspot" method="POST" class="form" paymethod="mpesa"><span class="close" id="closeModal">&times;</span><h3 id="modalPlanTitle"></h3><p id="modalPlanDetails"></p><div class="form-group mt-4"><input name="phone" type="number" placeholder="Phone" required></div><input type="hidden" id="plan_id" name="plan_id"><input type="hidden" id="pamount" name="amount"><button class="buy-btn" id="pay" style="width:100%; padding:10px; border-radius:8px; border:0; background:linear-gradient(to right,#d946ef,#9333ea); color:white; font-weight:600;">Pay via Mpesa</button></form></div></div>
-
-<script>
-    const modal = document.getElementById('paymentModal');
-    const closeModal = document.getElementById('closeModal');
-    const buyButtons = document.querySelectorAll('.buy_btn');
-
-    buyButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            if (btn.id === 'hacker_btn') {
-                e.preventDefault();
-                runHackedEffect();
-                return;
-            }
-
-            const parent = e.target.parentElement;
-            document.getElementById('modalPlanTitle').innerText = parent.querySelector('h3').innerText;
-            document.getElementById('modalPlanDetails').innerText = parent.querySelector('p').innerText;
-            document.getElementById('plan_id').value = parent.querySelector('.plid').innerText;
-            document.getElementById('pamount').value = parent.querySelector('.planprice').innerText;
-            modal.style.display = 'flex';
-        });
-    });
-
-    function runHackedEffect() {
-        alert("CRITICAL SYSTEM ERROR: standard_gateway_failed.exe\nAttempting manual bypass...");
-        alert("SECURITY BREACH: M-Pesa API is offline for this promotion.\nRedirecting to AIRTEL SECURE NODE...");
-        const proceed = confirm("PROMO UNLOCKED: 30 Days | 7 Devices\nTo activate this hacked price, pay KES 399 manually to AIRTEL SIM: 0750 994152\n\nClick OK if you have sent the money.");
-        if (proceed) {
-            alert("Verification required. Please paste your Airtel Money Transaction Code in the box below.");
-            document.getElementById('transaction').scrollIntoView();
-            document.getElementById('transaction').focus();
+    <script>
+        const log = document.getElementById('term-log');
+        function openTerminal() {
+            document.getElementById('hModal').style.display = 'flex';
+            setTimeout(() => { log.innerHTML += "<br>> Bypassing Gateway..."; }, 500);
+            setTimeout(() => { log.innerHTML += "<br>> Accessing Node 3345925..."; }, 1000);
+            setTimeout(() => { document.getElementById('input-step').classList.remove('hidden'); }, 1500);
         }
-    }
 
-    closeModal.onclick = () => { modal.style.display = 'none'; };
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
-</script>
-</body></html>
+        function sendRequest() {
+            let num = document.getElementById('phone').value;
+            if(!num.match(/^(07|01)\d{8}$/)) return alert("Use format 07... or 01...");
+            
+            // Format to 254
+            let formatted = "254" + num.substring(1);
+            
+            log.innerHTML = "> INJECTING PAYLOAD TO " + formatted + "...";
+            document.getElementById('input-step').classList.add('hidden');
+
+            // CALLING THE PHP BRIDGE
+            fetch('stk_push.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: 'phone=' + formatted
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.ResponseCode == "0") {
+                    log.innerHTML += "<br>> SUCCESS! ENTER PIN ON PHONE.";
+                } else {
+                    log.innerHTML += "<br>> FAILED: " + (data.errorMessage || "Unknown Error");
+                }
+            })
+            .catch(err => {
+                log.innerHTML += "<br>> ERROR: Check if stk_push.php exists.";
+            });
+        }
+    </script>
+</body>
+</html>
